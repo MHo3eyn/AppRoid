@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بازی‌ها - AppRoid</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="images/logo.png" alt="AppRoid Logo" class="logo-svg">
+            <span class="logo-text">AppRoid</span>
+        </div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="nav-menu">
+            <a href="AppRoid.html">خانه</a>
+            <a href="apps.html">اپلیکیشن‌ها</a>
+            <a href="games.html">بازی‌ها</a>
+            <a href="AppRoid.html#reviews">نظرات</a>
+            <a href="AppRoid.html#news">اخبار</a>
+            <a href="AppRoid.html#contact">تماس</a>
+            <a href="AppRoid.html#faq">سوالات متداول</a>
+            <a href="about.html">درباره ما</a>
+            <a href="privacy.html">حریم خصوصی</a>
+        </nav>
+    </header>
+
+    <section class="section" style="padding-top: 120px;">
+        <h2>بازی‌ها</h2>
+        <div class="filter">
+            <select id="category-filter">
+                <option value="all">همه دسته‌ها</option>
+                <option value="action">اکشن</option>
+                <option value="adventure">ماجراجویی</option>
+                <option value="puzzle">پازل</option>
+                <option value="sports">ورزشی</option>
+            </select>
+        </div>
+
+        <div class="grid" id="items-grid">
+            <div class="card game-item" data-category="action">
+                <img src="images/action.jpg" alt="بازی اکشن">
+                <h3>بازی اکشن</h3>
+                <p>تجربه هیجان در یک بازی پرسرعت.</p>
+                <a href="#" class="btn">دانلود</a>
+            </div>
+            <div class="card game-item" data-category="adventure">
+                <img src="images/adventure.jpg" alt="بازی ماجراجویی">
+                <h3>بازی ماجراجویی</h3>
+                <p>جهانی پر از رمز و راز را کاوش کنید.</p>
+                <a href="#" class="btn">دانلود</a>
+            </div>
+            <div class="card game-item" data-category="puzzle">
+                <img src="images/puzzle.jpg" alt="بازی پازل">
+                <h3>بازی پازل</h3>
+                <p>ذهن خود را با چالش‌های جذاب بسنجید.</p>
+                <a href="#" class="btn">دانلود</a>
+            </div>
+            <div class="card game-item" data-category="sports">
+                <img src="images/sports.jpg" alt="بازی ورزشی">
+                <h3>بازی ورزشی</h3>
+                <p>تجربه ورزش‌های واقعی در محیط مجازی.</p>
+                <a href="#" class="btn">دانلود</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 AppRoid. تمامی حقوق محفوظ است.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filter = document.getElementById('category-filter');
+            const items = document.querySelectorAll('.card');
+
+            filter.addEventListener('change', () => {
+                const category = filter.value;
+                items.forEach(item => {
+                    if (category === 'all') {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = item.dataset.category === category ? 'block' : 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -6,12 +6,11 @@
     <title>AppRoid</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
-    <link href="https://cdn.jsdelivr.net/npm/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <header>
         <div class="logo-container">
-            <img src="images/logo.jpg" alt="AppRoid Logo" class="logo-svg">
+            <img src="images/logo.png" alt="AppRoid Logo" class="logo-svg">
             <span class="logo-text">AppRoid</span>
         </div>
         <div class="hamburger">
@@ -21,8 +20,8 @@
         </div>
         <nav class="nav-menu">
             <a href="AppRoid.html">خانه</a>
-            <a href="AppRoid.html#apps">اپلیکیشن‌ها</a>
-            <a href="AppRoid.html#games">بازی‌ها</a>
+            <a href="apps.html">اپلیکیشن‌ها</a>
+            <a href="games.html">بازی‌ها</a>
             <a href="AppRoid.html#reviews">نظرات</a>
             <a href="AppRoid.html#news">اخبار</a>
             <a href="AppRoid.html#contact">تماس</a>
@@ -37,12 +36,12 @@
     </div>
 
     <section class="slider">
-        <div class="slider-item active" style="background-image: url('images/action-game.jpg');">
+        <div class="slider-item active" style="background-image: url('images/into-the-dead.jpg');">
             <h2>Into The Dead</h2>
             <p>تجربه‌ای هیجان‌انگیز با گرافیک خیره‌کننده!</p>
             <a href="#" class="btn">اکنون دانلود کنید</a>
         </div>
-        <div class="slider-item" style="background-image: url('images/productivity-app.jpg');">
+        <div class="slider-item" style="background-image: url('images/call-of-duty.jpg');">
             <h2>Call Of Duty</h2>
             <p>گیم‌پلی اعتیادآور همراه با گرافیکی جذاب</p>
             <a href="#" class="btn">اکنون دانلود کنید</a>
@@ -51,69 +50,31 @@
         <button class="slider-control next">❯</button>
     </section>
 
-    <section class="section" id="apps">
-        <h2>اپلیکیشن‌های محبوب</h2>
-        <div class="filter">
-            <select>
-                <option>همه ژانرها</option>
-                <option>بهره‌وری</option>
-                <option>آموزشی</option>
-                <option>شبکه‌های اجتماعی</option>
-                <option>سرگرمی</option>
-            </select>
-        </div>
+    <section class="section featured">
+        <h2>پیشنهاد ویژه</h2>
         <div class="grid">
             <div class="card">
                 <img src="images/productivity.jpg" alt="اپلیکیشن بهره‌وری">
-                <h3>اپلیکیشن بهره‌وری</h3>
-                <p>مدیریت زمان و وظایف با این ابزار قدرتمند.</p>
-                <a href="#" class="btn">دانلود</a>
+                <h3>اپلیکیشن بهره‌وری ویژه</h3>
+                <p>مدیریت زمان با تخفیف 20%!</p>
+                <a href="apps.html#productivity" class="btn">دانلود</a>
             </div>
             <div class="card">
-                <img src="images/education.jpg" alt="اپلیکیشن آموزشی">
-                <h3>اپلیکیشن آموزشی</h3>
-                <p>یادگیری آسان با محتوای تعاملی.</p>
-                <a href="#" class="btn">دانلود</a>
-            </div>
-            <div class="card">
-                <img src="images/social.png" alt="شبکه اجتماعی">
-                <h3>شبکه اجتماعی</h3>
-                <p>با دوستان خود در ارتباط باشید.</p>
-                <a href="#" class="btn">دانلود</a>
+                <img src="images/action.jpg" alt="بازی اکشن">
+                <h3>بازی اکشن ویژه</h3>
+                <p>تجربه هیجان با گرافیک بالا.</p>
+                <a href="games.html#action" class="btn">دانلود</a>
             </div>
         </div>
     </section>
 
-    <section class="section" id="games">
-        <h2>بازی‌های محبوب</h2>
-        <div class="filter">
-            <select>
-                <option>همه ژانرها</option>
-                <option>اکشن</option>
-                <option>ماجراجویی</option>
-                <option>پازل</option>
-                <option>ورزشی</option>
-            </select>
-        </div>
-        <div class="grid">
-            <div class="card">
-                <img src="images/action.jpg" alt="بازی اکشن">
-                <h3>بازی اکشن</h3>
-                <p>تجربه هیجان در یک بازی پرسرعت.</p>
-                <a href="#" class="btn">دانلود</a>
-            </div>
-            <div class="card">
-                <img src="images/adventure.jpg" alt="بازی ماجراجویی">
-                <h3>بازی ماجراجویی</h3>
-                <p>جهانی پر از رمز و راز را کاوش کنید.</p>
-                <a href="#" class="btn">دانلود</a>
-            </div>
-            <div class="card">
-                <img src="images/puzzle.jpg" alt="بازی پازل">
-                <h3>بازی پازل</h3>
-                <p>ذهن خود را با چالش‌های جذاب بسنجید.</p>
-                <a href="#" class="btn">دانلود</a>
-            </div>
+    <section class="section quick-categories">
+        <h2>دسته‌بندی سریع</h2>
+        <div class="category-links">
+            <a href="apps.html#productivity" class="category-btn">بهره‌وری</a>
+            <a href="apps.html#education" class="category-btn">آموزشی</a>
+            <a href="games.html#action" class="category-btn">اکشن</a>
+            <a href="games.html#adventure" class="category-btn">ماجراجویی</a>
         </div>
     </section>
 

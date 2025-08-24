@@ -2,7 +2,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Vazir', sans-serif; /* فونت فارسی مدرن */
+}
+
+@font-face {
+    font-family: 'Vazir';
+    src: url('fonts/Vazir.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 body {
@@ -10,6 +16,7 @@ body {
     color: #333;
     direction: rtl;
     line-height: 1.6;
+    font-family: 'Vazir', sans-serif;
 }
 
 header {
@@ -23,8 +30,11 @@ header {
     width: 100%;
     top: 0;
     z-index: 1000;
-    
+    transition: background 0.3s;
+}
 
+header:hover {
+    background: linear-gradient(135deg, #1e3a8a, #7c3aed);
 }
 
 header .logo-container {
@@ -38,16 +48,11 @@ header .logo-svg {
     margin-right: 15px;
     border-radius: 50%;
     overflow: hidden;
-    
+    transition: transform 0.3s; /* فقط افکت بزرگ شدن حفظ می‌شه */
 }
 
 header .logo-svg:hover {
     transform: scale(1.1);
-}
-
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
 }
 
 header .logo-text {
@@ -216,6 +221,37 @@ header .nav-menu a:hover {
     margin-bottom: 30px;
     color: #2a5298;
     animation: fadeIn 1s ease-out;
+}
+
+.featured {
+    padding: 40px 20px;
+    background: #f9f9f9;
+}
+
+.quick-categories {
+    padding: 40px 20px;
+    background: #e0e7ff;
+}
+
+.category-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.category-btn {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #2a5298, #6b48ff);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s;
+}
+
+.category-btn:hover {
+    background: linear-gradient(135deg, #1e3a8a, #7c3aed);
+    transform: translateY(-2px);
 }
 
 .filter {
