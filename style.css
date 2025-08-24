@@ -27,12 +27,15 @@ header {
 header .logo-container {
     display: flex;
     align-items: center;
+    
 }
 
 header .logo-svg {
     width: 50px;
     height: 50px;
     margin-right: 10px;
+    border-radius: 50%;
+    
 }
 
 header .logo-text {
