@@ -2,46 +2,59 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Vazir', sans-serif; /* فونت فارسی مدرن */
 }
 
 body {
-    background-color: #f0f2f5;
+    background: linear-gradient(135deg, #f0f4f8, #e0e7ff);
     color: #333;
     direction: rtl;
+    line-height: 1.6;
 }
 
 header {
-    background: linear-gradient(135deg, #1e3a8a, #7c3aed);
+    background: linear-gradient(135deg, #2a5298, #6b48ff);
     padding: 20px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
+    
+
 }
 
 header .logo-container {
     display: flex;
     align-items: center;
-    
 }
 
 header .logo-svg {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
     border-radius: 50%;
+    overflow: hidden;
     
 }
 
+header .logo-svg:hover {
+    transform: scale(1.1);
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
 header .logo-text {
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 32px;
+    font-weight: 700;
     color: #fff;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 
 header .hamburger {
@@ -51,15 +64,15 @@ header .hamburger {
 }
 
 header .hamburger span {
-    width: 25px;
+    width: 30px;
     height: 3px;
     background-color: #fff;
-    margin: 2px 0;
+    margin: 3px 0;
     transition: all 0.3s ease;
 }
 
 header .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
+    transform: rotate(45deg) translate(6px, 6px);
 }
 
 header .hamburger.active span:nth-child(2) {
@@ -77,40 +90,46 @@ header .nav-menu {
 header .nav-menu a {
     color: #fff;
     text-decoration: none;
-    margin-left: 20px;
-    font-size: 16px;
-    transition: color 0.3s;
+    margin-left: 25px;
+    font-size: 18px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: all 0.3s;
 }
 
 header .nav-menu a:hover {
-    color: #e0e0e0;
+    color: #ffcc00;
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .search-bar {
-    margin: 100px auto 20px;
-    max-width: 600px;
+    margin: 120px auto 30px;
+    max-width: 700px;
     padding: 0 20px;
 }
 
 .search-bar input {
     width: 100%;
-    padding: 12px;
-    border-radius: 25px;
-    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 30px;
+    border: 2px solid #2a5298;
     font-size: 16px;
     outline: none;
-    transition: border-color 0.3s;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
 }
 
 .search-bar input:focus {
-    border-color: #1e3a8a;
+    border-color: #6b48ff;
+    box-shadow: 0 4px 15px rgba(107, 72, 255, 0.3);
 }
 
 .slider {
     position: relative;
-    height: 60vh;
+    height: 70vh;
     overflow: hidden;
     background: #000;
+    margin-top: 20px;
 }
 
 .slider-item {
@@ -122,93 +141,138 @@ header .nav-menu a:hover {
     color: #fff;
     text-align: center;
     padding: 50px 20px;
+    opacity: 0;
+    transition: opacity 0.5s;
 }
 
 .slider-item.active {
     display: block;
+    opacity: 1;
 }
 
 .slider-item h2 {
-    font-size: 36px;
+    font-size: 40px;
     margin-bottom: 20px;
+    animation: fadeInUp 1s ease-out;
 }
 
 .slider-item p {
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 30px;
+    animation: fadeInUp 1.2s ease-out;
 }
 
 .slider-item .btn {
-    background-color: #1e3a8a;
+    background: linear-gradient(135deg, #2a5298, #6b48ff);
     color: #fff;
-    padding: 12px 30px;
-    border-radius: 25px;
+    padding: 15px 35px;
+    border-radius: 30px;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 18px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
 }
 
 .slider-item .btn:hover {
-    background-color: #7c3aed;
+    background: linear-gradient(135deg, #1e3a8a, #7c3aed);
+    transform: translateY(-2px);
+}
+
+.slider-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.3s;
+}
+
+.slider-control.prev {
+    left: 10px;
+}
+
+.slider-control.next {
+    right: 10px;
+}
+
+.slider-control:hover {
+    background: rgba(0, 0, 0, 0.8);
 }
 
 .section {
-    padding: 50px 20px;
+    padding: 60px 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .section h2 {
     text-align: center;
-    font-size: 36px;
-    margin-bottom: 20px;
+    font-size: 40px;
+    margin-bottom: 30px;
+    color: #2a5298;
+    animation: fadeIn 1s ease-out;
 }
 
 .filter {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .filter select {
-    padding: 10px;
+    padding: 12px;
     font-size: 16px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
+    border-radius: 25px;
+    border: 2px solid #2a5298;
     outline: none;
     cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.filter select:focus {
+    border-color: #6b48ff;
 }
 
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    gap: 25px;
+    animation: fadeIn 1.5s ease-out;
 }
 
 .card {
     background: #fff;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
     text-align: center;
+    animation: fadeInUp 1.5s ease-out;
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .card img {
     width: 100%;
-    height: 150px;
+    height: 180px;
     object-fit: cover;
 }
 
 .card h3 {
-    font-size: 20px;
+    font-size: 22px;
     margin: 15px 0 10px;
+    color: #2a5298;
 }
 
 .card p {
-    font-size: 14px;
+    font-size: 15px;
     color: #666;
     padding: 0 15px;
     margin-bottom: 15px;
@@ -216,105 +280,122 @@ header .nav-menu a:hover {
 
 .card .btn {
     display: inline-block;
-    background-color: #1e3a8a;
+    background: linear-gradient(135deg, #2a5298, #6b48ff);
     color: #fff;
-    padding: 10px 20px;
-    border-radius: 20px;
+    padding: 12px 25px;
+    border-radius: 25px;
     text-decoration: none;
     margin-bottom: 15px;
+    transition: all 0.3s;
 }
 
 .card .btn:hover {
-    background-color: #7c3aed;
+    background: linear-gradient(135deg, #1e3a8a, #7c3aed);
+    transform: translateY(-2px);
 }
 
 .reviews-section {
-    background: #fff;
-    padding: 50px 20px;
+    background: linear-gradient(135deg, #f0f4f8, #e0e7ff);
+    padding: 60px 20px;
     text-align: center;
 }
 
 .review-card {
-    background: #f9f9f9;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 10px;
-    max-width: 500px;
+    background: #fff;
+    border-radius: 15px;
+    padding: 25px;
+    margin: 15px;
+    max-width: 550px;
     display: inline-block;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1.5s ease-out;
 }
 
 .news-section {
-    background: #e5e7eb;
-    padding: 50px 20px;
+    background: #e0e7ff;
+    padding: 60px 20px;
 }
 
 .news-card {
     background: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1.5s ease-out;
 }
 
 .contact-section {
-    padding: 50px 20px;
-    background: #fff;
+    padding: 60px 20px;
+    background: #f0f4f8;
 }
 
 .contact-form {
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
 }
 
 .contact-form input, .contact-form textarea {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #2a5298;
+    border-radius: 10px;
     font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    border-color: #6b48ff;
 }
 
 .contact-form button {
-    background-color: #1e3a8a;
+    background: linear-gradient(135deg, #2a5298, #6b48ff);
     color: #fff;
-    padding: 10px 20px;
+    padding: 12px 30px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
+    transition: all 0.3s;
 }
 
 .contact-form button:hover {
-    background-color: #7c3aed;
+    background: linear-gradient(135deg, #1e3a8a, #7c3aed);
+    transform: translateY(-2px);
 }
 
 .faq-section {
-    padding: 50px 20px;
+    padding: 60px 20px;
+    background: #e0e7ff;
 }
 
 .faq-item {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    animation: fadeIn 1.5s ease-out;
 }
 
 .faq-item h3 {
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 10px;
+    color: #2a5298;
 }
 
 footer {
-    background-color: #1e3a8a;
+    background: linear-gradient(135deg, #2a5298, #6b48ff);
     color: #fff;
     text-align: center;
-    padding: 20px;
+    padding: 30px;
     margin-top: 50px;
 }
 
 footer p {
-    font-size: 14px;
+    font-size: 16px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 768px) {
     header {
-        padding: 20px;
+        padding: 15px 20px;
     }
 
     header .logo-container {
@@ -328,13 +409,13 @@ footer p {
     header .nav-menu {
         display: none;
         position: absolute;
-        top: 80px;
+        top: 70px;
         right: 0;
-        background: #1e3a8a;
+        background: #2a5298;
         width: 100%;
         flex-direction: column;
-        padding: 20px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        padding: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
 
     header .nav-menu.active {
@@ -344,6 +425,7 @@ footer p {
     header .nav-menu a {
         margin: 10px 0;
         font-size: 18px;
+        padding: 10px;
     }
 
     .slider-item h2 {
@@ -355,6 +437,21 @@ footer p {
     }
 
     .section h2 {
-        font-size: 28px;
+        font-size: 30px;
     }
+
+    .card {
+        margin: 10px 0;
+    }
+}
+
+/* انیمیشن‌ها */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
